@@ -18,6 +18,10 @@ type Props = {
   increment: Function
 };
 
+const inlineStyle = {
+  width: '10%'
+};
+
 // We avoid using the `@connect` decorator on the class definition so
 // that we can export the undecorated component for testing.
 // See: http://rackt.github.io/redux/docs/recipes/WritingTests.html
@@ -35,6 +39,7 @@ export class HomeView extends React.Component<void, Props, void> {
           <div className='col-xs-2 col-xs-offset-5'>
             <img className={classes.duck}
               src={DuckImage}
+              style={inlineStyle}
               alt='This is a duck, because Redux.' />
           </div>
         </div>
