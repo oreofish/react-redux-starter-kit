@@ -1,5 +1,9 @@
-import Koa from 'koa'
+import fs from "fs"
+import Koa from "koa"
+import mongoose from "mongoose"
+import passport from "koa-passport"
 import convert from 'koa-convert'
+import koaif from 'koa-if'
 import webpack from 'webpack'
 import webpackConfig from '../build/webpack.config'
 import historyApiFallback from 'koa-connect-history-api-fallback'
@@ -7,8 +11,18 @@ import serve from 'koa-static'
 import proxy from 'koa-proxy'
 import _debug from 'debug'
 import config from '../config'
+import database from './config/database'
 import webpackDevMiddleware from './middleware/webpack-dev'
 import webpackHMRMiddleware from './middleware/webpack-hmr'
+
+/**
+ * Connect to database
+ */
+const dbconfig = database[config.env]
+mongoose.connect(dbconfig.mongo.url);
+mongoose.connection.on("error", function(err) {
+  debug(err)
+});
 
 const debug = _debug('app:server')
 const paths = config.utils_paths
@@ -19,12 +33,33 @@ if (config.proxy && config.proxy.enabled) {
   app.use(convert(proxy(config.proxy.options)))
 }
 
+/**
+ * Load the models
+ */
+const modelsPath = paths.base(config.dir_server) + "/models"
+fs.readdirSync(modelsPath).forEach(function(file) {
+  if (~file.indexOf("js")) {
+    require(modelsPath + "/" + file)
+  }
+});
+
 // This rewrites all routes requests to the root /index.html file
-// (ignoring file requests). If you want to implement isomorphic
-// rendering, you'll want to remove this middleware.
-app.use(convert(historyApiFallback({
-  verbose: false
-})))
+// the middleware ignore file requests.
+// the middleware ignore url with prefix '/api'
+app.use(koaif(convert(historyApiFallback({
+  verbose: true,
+  logger: console.log.bind(console)
+})), (ctx) => {
+  // console.log('=================== ctx: ' + JSON.stringify(ctx))
+  return ctx.originalUrl.substr(0, 4) != '/api'
+}))
+
+/**
+ * Server
+ */
+require("./config/passport")(passport, config);
+require("./config/koa")(app, config, dbconfig, passport);
+require("./config/routes")(app, passport); // Routes
 
 // ------------------------------------
 // Apply Webpack HMR Middleware
