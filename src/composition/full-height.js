@@ -7,7 +7,8 @@ export default function makeFullHeightComponent(Component, heightCalculationFunc
 
   return class FullHeightWrapper extends React.Component {
     static propTypes = {
-      displayName: PropTypes.string
+      displayName: PropTypes.string,
+      height: PropTypes.Number
     }
 
     constructor() {

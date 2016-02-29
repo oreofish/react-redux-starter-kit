@@ -12,20 +12,23 @@ import CoreLayout from 'layouts/CoreLayout/CoreLayout'
 import HomeView from 'views/HomeView/HomeView'
 
 export default (store) => (
-  <Route path='/' component={CoreLayout}>
+  <Route path='/' component={Application}>
     <IndexRoute component={HomeView}/>
-/*
-    <Route path='landing' component={HomePage}/>
-    <Route path='auth' component={AuthLayout}>
-      <Route path='signin' component={SignInPage}/>
-      <Route path='signup' component={SignUpPage}/>
-      <Route path='signout' component={SignOutPage}/>
-      <IndexRedirect component={SignInPage}/>
-    </Route>
-    <Route path="admin" component={AdminLayout}>
-      <IndexRoute component={AdminPage}/>
-      <Route path='profile' component={ProfilePage}/>
-    </Route>
-*/
+    <Route path='landing' component={HomeView}/>
   </Route>
 )
+
+//<Route path='/' component={Application}>
+//  <IndexRoute component={HomeView}/>
+//  <Route path='landing' component={HomePage}/>
+//  <Route path='auth' component={AuthLayout}>
+//  <Route path='signin' component={SignInPage}/>
+//  <Route path='signup' component={SignUpPage}/>
+//  <Route path='signout' component={SignOutPage}/>
+//  <IndexRedirect component={SignInPage}/>
+//  </Route>
+//  <Route path="admin" component={AdminLayout}>
+//  <IndexRoute component={AdminPage}/>
+//  <Route path='profile' component={ProfilePage}/>
+//  </Route>
+//  </Route>
