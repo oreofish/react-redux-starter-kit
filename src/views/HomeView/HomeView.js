@@ -12,7 +12,8 @@ import classes from './HomeView.scss'
 // NOTE: You can run `npm run flow:check` to check for any errors in your
 // code, or `npm i -g flow-bin` to have access to the binary globally.
 // Sorry Windows users :(.
-type Props = {
+type
+Props = {
   counter: number,
   doubleAsync: Function,
   increment: Function
@@ -20,7 +21,7 @@ type Props = {
 
 const inlineStyle = {
   width: '10%'
-};
+}
 
 // We avoid using the `@connect` decorator on the class definition so
 // that we can export the undecorated component for testing.
@@ -32,7 +33,7 @@ export class HomeView extends React.Component<void, Props, void> {
     increment: PropTypes.func.isRequired
   };
 
-  render () {
+  render() {
     return (
       <div className='container text-center'>
         <div className='row'>
@@ -40,7 +41,7 @@ export class HomeView extends React.Component<void, Props, void> {
             <img className={classes.duck}
               src={DuckImage}
               style={inlineStyle}
-              alt='This is a duck, because Redux.' />
+              alt='This is a duck, because Redux.'/>
           </div>
         </div>
         <h1>Welcome to the React Redux Starter Kit</h1>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, IndexRoute, Redirect, IndexRedirect } from 'react-router'
 
-import Application from "../application";
+import Application from '../application'
 
 // NOTE: here we're making use of the `resolve.root` configuration
 // option in webpack, which allows us to specify import paths as if
