@@ -71,7 +71,7 @@ export default class SignIn extends Component {
         </Row>
         <Row>
           <Col md={6} mdOffset={3}>
-            <p>Don't have an account? You can <Link to="sign-up">sign up</Link></p>
+            <p>Don't have an account? You can <Link to="signup">sign up</Link></p>
           </Col>
         </Row>
       </div>
