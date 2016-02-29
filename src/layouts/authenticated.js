@@ -34,7 +34,7 @@ export default class MainLayout extends Component {
             </Nav>
           </Col>
           <Col md={10} className="well">
-            <RouteHandler />
+            {this.props.children}
           </Col>
         </Row>
       </div>
