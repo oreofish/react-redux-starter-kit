@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import { Navbar, Nav, NavItem, Glyphicon } from 'react-bootstrap'
-import { NavItemLink } from 'react-router-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 import AuthStore from '../stores/auth'
 
 export default class AppNavbar extends Component {
@@ -41,7 +41,7 @@ export default class AppNavbar extends Component {
       <Navbar inverse fixedTop>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">{this.renderBrand()}</a>
+            {this.renderBrand()}
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
@@ -53,13 +53,13 @@ export default class AppNavbar extends Component {
   }
 
   renderBrand() {
-    return (<Link to='index'>{this.props.brand}</Link>)
+    return (<Link to='landing'>{this.props.brand}</Link>)
   }
 
   renderNavLinks() {
     if (this.state.user) {
       return (
-        <Nav pullRight eventKey={0}>
+        <Nav eventKey={0}>
           <NavItem eventKey={1} href='profile'>
             <Glyphicon glyph='user'/> {this.state.user.username}
           </NavItem>
@@ -70,10 +70,17 @@ export default class AppNavbar extends Component {
       )
     }
     return (
-      <Nav pullRight eventKey={0}>
-        <NavItem eventKey={1} href='signup'>
-          <Glyphicon glyph='user'/> Sign up
-        </NavItem>
+      <Nav eventKey={0}>
+        <LinkContainer to="signup">
+          <NavItem>
+            <Glyphicon glyph='user'/> Sign up
+          </NavItem>
+        </LinkContainer>
+        <LinkContainer to="signin">
+          <NavItem>
+            <Glyphicon glyph='user'/> Sign in
+          </NavItem>
+        </LinkContainer>
       </Nav>
     )
   }

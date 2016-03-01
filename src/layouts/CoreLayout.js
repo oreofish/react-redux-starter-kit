@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
-import Navbar from '../../components/navbar.js'
-import '../../styles/core.scss'
+import Navbar from '../components/navbar.js'
+import '../styles/core.scss'
 
 // Note: Stateless/function components *will not* hot reload!
 // react-transform *only* works on component classes.

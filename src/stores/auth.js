@@ -48,6 +48,9 @@ const AuthStore = {
       .set('Accept', 'application/json')
       .set('Content-Type', 'application/json')
       .end(function (err, res) {
+        console.log('=======================')
+        console.log(JSON.stringify(err))
+        console.log(JSON.stringify(res))
         if (!err && res.body && res.body.user) {
           _user = parseUser(res.body.user)
         }
@@ -86,9 +89,12 @@ const AuthStore = {
     })
   },
   addChangeListener: function (listener) {
+    console.log('======================= addChangeListener')
+    console.log(listener)
     _changeListeners.push(listener)
   },
   removeChangeListener: function (listener) {
+    console.log('======================= removeChangeListener')
     _changeListeners = _changeListeners.filter(function (l) {
       return listener !== l
     })

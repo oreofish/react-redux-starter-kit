@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Provider } from 'react-redux'
 import { Router } from 'react-router'
+import { Col, Row } from 'react-bootstrap'
 
 export default class Root extends React.Component {
   static propTypes = {
@@ -9,7 +10,7 @@ export default class Root extends React.Component {
     store: PropTypes.object.isRequired
   };
 
-  get devTools () {
+  get devTools() {
     if (__DEBUG__) {
       if (__DEBUG_NEW_WINDOW__) {
         if (!window.devToolsExtension) {
@@ -24,14 +25,20 @@ export default class Root extends React.Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <Provider store={this.props.store}>
         <div style={{ height: '100%' }}>
-          <Router history={this.props.history}>
-            {this.props.routes}
-          </Router>
-          {this.devTools}
+          <Row>
+            <Col md={9}>
+              <Router history={this.props.history}>
+                {this.props.routes}
+              </Router>
+            </Col>
+            <Col md={3}>
+              {this.devTools}
+            </Col>
+          </Row>
         </div>
       </Provider>
     )
