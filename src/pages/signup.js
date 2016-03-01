@@ -6,7 +6,7 @@ import AuthStore from "../stores/auth";
 
 export default class SignUp extends Component {
   static displayName = "SignUp";
-  static contextTypes = { router: PropTypes.func };
+  static contextTypes = { router: PropTypes.object.isRequired };
 
   constructor(props) {
     super(props);
