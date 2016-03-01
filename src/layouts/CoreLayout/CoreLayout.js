@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import Navbar from '../../components/navbar.js'
 import '../../styles/core.scss'
 
 // Note: Stateless/function components *will not* hot reload!
@@ -13,6 +14,7 @@ import '../../styles/core.scss'
 function CoreLayout ({ children }) {
   return (
     <div className='page-container'>
+      <Navbar brand="HAHAHA"/>
       <div className='view-container'>
         {children}
       </div>
