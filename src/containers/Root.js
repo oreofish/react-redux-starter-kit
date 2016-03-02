@@ -29,16 +29,10 @@ export default class Root extends React.Component {
     return (
       <Provider store={this.props.store}>
         <div style={{ height: '100%' }}>
-          <Row>
-            <Col md={9}>
-              <Router history={this.props.history}>
-                {this.props.routes}
-              </Router>
-            </Col>
-            <Col md={3}>
-              {this.devTools}
-            </Col>
-          </Row>
+          <Router history={this.props.history}>
+            {this.props.routes}
+          </Router>
+          {this.devTools}
         </div>
       </Provider>
     )

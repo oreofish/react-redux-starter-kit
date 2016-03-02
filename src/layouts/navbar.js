@@ -59,7 +59,7 @@ export default class AppNavbar extends Component {
   renderNavLinks() {
     if (this.state.user) {
       return (
-        <Nav eventKey={0}>
+        <Nav pullRight eventKey={0}>
           <LinkContainer to='profile'>
             <NavItem>
               <Glyphicon glyph='user'/> {this.state.user.username}
@@ -74,7 +74,7 @@ export default class AppNavbar extends Component {
       )
     }
     return (
-      <Nav eventKey={0}>
+      <Nav pullRight eventKey={0}>
         <LinkContainer to='signup'>
           <NavItem>
             <Glyphicon glyph='user'/> Sign up
