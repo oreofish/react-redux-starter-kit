@@ -1,6 +1,8 @@
 "use strict";
 import convert from 'koa-convert'
 import Router from 'koa-router'
+import mongoose from "mongoose"
+import generateApi from 'koa-mongo-rest'
 
 const countController = require("../controllers/count");
 const indexController = require("../controllers/index");
@@ -41,4 +43,7 @@ module.exports = function(app, passport) {
 
   app.use(convert(router.routes()));
   app.use(convert(router.allowedMethods()));
+
+  //add REST routes to your app. Prefix is optional
+  generateApi(router, mongoose.model('Document'), '/api');
 };

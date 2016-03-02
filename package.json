@@ -79,6 +79,7 @@
     "koa-generic-session": "^1.10.1",
     "koa-if": "oreofish/koa-if",
     "koa-logger": "^2.0.0",
+    "koa-mongo-rest": "oreofish/koa-mongo-rest",
     "koa-passport": "~1.2.0",
     "koa-proxy": "^0.5.0",
     "koa-response-time": "1.0.x",
