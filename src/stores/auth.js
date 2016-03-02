@@ -51,6 +51,8 @@ const AuthStore = {
         if (!err && res.body && res.body.user) {
           _user = parseUser(res.body.user)
         }
+        console.log('================ fetchUser')
+        console.log(_user)
         AuthStore.notifyChange()
       })
   },

@@ -5,7 +5,7 @@ const database = {
       keys: [ "super-secret-hurr-durr" ],
     },
     mongo: {
-      url: "mongodb://localhost/koareactfullexample_dev",
+      url: "mongodb://localhost/react_kit_dev",
     },
   },
   test: {
@@ -14,7 +14,7 @@ const database = {
       keys: [ "super-secret-hurr-durr" ],
     },
     mongo: {
-      url: "mongodb://localhost/koareactfullexample_test",
+      url: "mongodb://localhost/react_kit_test",
     },
   },
   production: {
@@ -23,7 +23,7 @@ const database = {
       keys: [ "super-secret-aa-hurr-durr" ],
     },
     mongo: {
-      url: "mongodb://localhost/koareactfullexample",
+      url: "mongodb://localhost/react_kit_prod",
     },
   },
 };

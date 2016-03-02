@@ -1,5 +1,4 @@
 import React from 'react'
-import Counter from '../components/counter'
 
 export default class Profile extends React.Component {
   static displayName = 'ProfilePage'

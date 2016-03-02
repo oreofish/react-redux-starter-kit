@@ -1,8 +1,8 @@
 "use strict";
 const path = require("path");
-// const serve = require("koa-static-cache");
-// const session = require("koa-generic-session");
-// const MongoStore = require("koa-sess-mongo-store");
+const serve = require("koa-static-cache");
+const session = require("koa-generic-session");
+const MongoStore = require("koa-sess-mongo-store");
 const responseTime = require("koa-response-time");
 const logger = require("koa-logger");
 // const views = require("co-views");
@@ -35,12 +35,10 @@ module.exports = function(app, config, dbconfig, passport) {
   }
 */
 
-/*
-  app.use(session({
-    key: "koareactfullexample.sid",
-    store: new MongoStore({ url: config.mongo.url }),
-  }));
-*/
+  app.use(convert(session({
+    key: "react_kit.sid",
+    store: new MongoStore({ url: dbconfig.mongo.url }),
+  })));
 
   app.use(convert(bodyParser()));
   app.use(convert(passport.initialize()));

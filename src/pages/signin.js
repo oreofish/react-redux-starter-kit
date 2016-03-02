@@ -8,7 +8,14 @@ import AuthStore from '../stores/auth'
 export default class SignIn extends Component {
   static displayName = 'SignInPage'
 
-  static contextTypes = { router: PropTypes.object.isRequired }
+  static propTypes = {
+    initialError: PropTypes.bool.isRequired
+  }
+
+  static contextTypes = {
+    router: PropTypes.object.isRequired
+  }
+
   static attemptedTransition = null
   static defaultProps = { initialError: false }
 
