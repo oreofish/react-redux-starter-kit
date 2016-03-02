@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import Navbar from '../components/navbar.js'
+import Navbar from './navbar'
 import '../styles/core.scss'
 
 // Note: Stateless/function components *will not* hot reload!

@@ -8,7 +8,7 @@ import { Route, IndexRoute, Redirect, IndexRedirect } from 'react-router'
 // your current file is.
 import CoreLayout from 'layouts/CoreLayout'
 import AdminLayout from 'layouts/AdminLayout'
-import HomeView from 'views/HomeView/HomeView'
+import HomeView from 'components/HomeView/HomeView'
 import HomePage from 'pages/home'
 import SignInPage from 'pages/signin'
 import SignUpPage from 'pages/signup'
