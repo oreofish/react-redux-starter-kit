@@ -25,7 +25,7 @@ export default class SignUp extends Component {
         if (err || !user) {
           return this.setState({ error: 'Could not Create the User' })
         }
-        this.context.router.replaceWith('index')
+        this.context.router.replace('landing')
       })
     }
   }

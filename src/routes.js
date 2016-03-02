@@ -13,6 +13,7 @@ import HomePage from 'pages/home'
 import SignInPage from 'pages/signin'
 import SignUpPage from 'pages/signup'
 import SignOutPage from 'pages/signout'
+import ProfilePage from 'pages/profile'
 import AdminPage from 'pages/admin'
 
 export default (store) => (
@@ -22,6 +23,7 @@ export default (store) => (
     <Route path='signin' component={SignInPage}/>
     <Route path='signup' component={SignUpPage}/>
     <Route path='signout' component={SignOutPage}/>
+    <Route path='profile' component={ProfilePage}/>
     <Route path='admin' component={AdminLayout}>
       <IndexRoute component={AdminPage}/>
     </Route>

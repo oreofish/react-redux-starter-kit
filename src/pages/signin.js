@@ -26,15 +26,15 @@ export default class SignIn extends Component {
     AuthStore.removeChangeListener(this.retryTransition)
   }
 
-  //retryTransition = () => {
-  //  if (SignIn.attemptedTransition) {
-  //    let transition = SignIn.attemptedTransition
-  //    SignIn.attemptedTransition = null
-  //    transition.retry()
-  //  } else {
-  //    this.context.router.replaceWith('index')
-  //  }
-  //}
+  retryTransition = () => {
+    if (SignIn.attemptedTransition) {
+      let transition = SignIn.attemptedTransition
+      SignIn.attemptedTransition = null
+      transition.retry()
+    } else {
+      this.context.router.replace('landing')
+    }
+  }
 
   handleSubmit = (e) => {
     e.preventDefault()
@@ -44,7 +44,7 @@ export default class SignIn extends Component {
       if (err || !user) {
         return this.setState({ error: true })
       }
-      // this.retryTransition()
+      this.retryTransition()
     })
   }
 

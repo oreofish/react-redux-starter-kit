@@ -60,12 +60,16 @@ export default class AppNavbar extends Component {
     if (this.state.user) {
       return (
         <Nav eventKey={0}>
-          <NavItem eventKey={1} href='profile'>
-            <Glyphicon glyph='user'/> {this.state.user.username}
-          </NavItem>
-          <NavItem href='signout'>
-            <Glyphicon glyph='off'/> Sign out
-          </NavItem>
+          <LinkContainer to='profile'>
+            <NavItem>
+              <Glyphicon glyph='user'/> {this.state.user.username}
+            </NavItem>
+          </LinkContainer>
+          <LinkContainer to='signout'>
+            <NavItem>
+              <Glyphicon glyph='off'/> Sign out
+            </NavItem>
+          </LinkContainer>
         </Nav>
       )
     }
