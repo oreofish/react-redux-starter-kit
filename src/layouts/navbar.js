@@ -60,6 +60,11 @@ export default class AppNavbar extends Component {
     if (this.state.user) {
       return (
         <Nav pullRight eventKey={0}>
+          <LinkContainer to='admin'>
+            <NavItem>
+              <Glyphicon glyph='cog'/> Admin
+            </NavItem>
+          </LinkContainer>
           <LinkContainer to='profile'>
             <NavItem>
               <Glyphicon glyph='user'/> {this.state.user.username}
@@ -67,7 +72,7 @@ export default class AppNavbar extends Component {
           </LinkContainer>
           <LinkContainer to='signout'>
             <NavItem>
-              <Glyphicon glyph='off'/> Sign out
+              <Glyphicon glyph='log-out'/> Sign out
             </NavItem>
           </LinkContainer>
         </Nav>
@@ -82,7 +87,7 @@ export default class AppNavbar extends Component {
         </LinkContainer>
         <LinkContainer to='signin'>
           <NavItem>
-            <Glyphicon glyph='user'/> Sign in
+            <Glyphicon glyph='log-in'/> Sign in
           </NavItem>
         </LinkContainer>
       </Nav>

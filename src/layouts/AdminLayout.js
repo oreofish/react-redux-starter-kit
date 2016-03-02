@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'
-import '../styles/core.scss'
-
+import Sidebar from './Sidebar'
 // Note: Stateless/function components *will not* hot reload!
 // react-transform *only* works on component classes.
 //
@@ -10,10 +9,13 @@ import '../styles/core.scss'
 //
 // AdminLayout is a pure function of its props, so we can
 // define it with a plain javascript function...
-function AdminLayout ({ children }) {
+function AdminLayout({ children }) {
   return (
     <div className='admin-container'>
-      {children}
+      <Sidebar/>
+      <div style={{'margin-left': 400}}>
+        {children}
+      </div>
     </div>
   )
 }
