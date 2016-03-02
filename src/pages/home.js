@@ -1,11 +1,8 @@
-import React from "react";
-import Counter from "../components/counter";
+import React from 'react'
+import Counter from '../components/counter'
 
 export default class Index extends React.Component {
-  static displayName = "IndexPage";
-  constructor() {
-    super();
-  }
+  static displayName = 'IndexPage'
 
   render() {
     return (
@@ -13,6 +10,6 @@ export default class Index extends React.Component {
         <h2>Index - Super Counter</h2>
         <Counter />
       </div>
-    );
+    )
   }
 }

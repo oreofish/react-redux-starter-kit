@@ -14,7 +14,7 @@ import '../styles/core.scss'
 function CoreLayout ({ children }) {
   return (
     <div className='page-container'>
-      <Navbar brand="HAHAHA"/>
+      <Navbar brand='HAHAHA'/>
       <div className='view-container'>
         {children}
       </div>

@@ -1,16 +1,16 @@
-import React from "react"
-import request from "superagent"
+import React from 'react'
+import request from 'superagent'
 
-import { Button, Badge } from "react-bootstrap"
+import { Button, Badge } from 'react-bootstrap'
 
 const get = (url, cb) => {
   request.get(url)
-  .set("Content-Type", "application/json")
+  .set('Content-Type', 'application/json')
   .end(cb)
 }
 
 export default class Counter extends React.Component {
-  static displayName = "Counter"
+  static displayName = 'Counter'
   static propTypes = {
     initialCount: React.PropTypes.number
 
@@ -23,7 +23,7 @@ export default class Counter extends React.Component {
   }
 
   componentWillMount() {
-    get("/api/value", (err, res) => {
+    get('/api/value', (err, res) => {
       if (err) {
         console.log(err)
         return
@@ -34,7 +34,7 @@ export default class Counter extends React.Component {
 
   onClickInc = (event) => {
     event.preventDefault()
-    get("/api/inc", (err, res) => {
+    get('/api/inc', (err, res) => {
       if (err) {
         console.log(err)
         return
@@ -45,7 +45,7 @@ export default class Counter extends React.Component {
 
   onClickDec = (event) => {
     event.preventDefault()
-    get("/api/dec", (err, res) => {
+    get('/api/dec', (err, res) => {
       if (err) {
         console.log(err)
         return
@@ -58,11 +58,11 @@ export default class Counter extends React.Component {
     return (
       <div>
         <h3>Counter</h3>
-        <div className="counter">
+        <div className='counter'>
           Count
           <Badge>{this.state.count}</Badge>
-          <Button bsStyle="success" onClick={this.onClickInc}>Increment</Button>
-          <Button bsStyle="danger" onClick={this.onClickDec}>Decrement</Button>
+          <Button bsStyle='success' onClick={this.onClickInc}>Increment</Button>
+          <Button bsStyle='danger' onClick={this.onClickDec}>Decrement</Button>
         </div>
       </div>
     )

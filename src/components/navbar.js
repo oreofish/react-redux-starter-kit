@@ -71,12 +71,12 @@ export default class AppNavbar extends Component {
     }
     return (
       <Nav eventKey={0}>
-        <LinkContainer to="signup">
+        <LinkContainer to='signup'>
           <NavItem>
             <Glyphicon glyph='user'/> Sign up
           </NavItem>
         </LinkContainer>
-        <LinkContainer to="signin">
+        <LinkContainer to='signin'>
           <NavItem>
             <Glyphicon glyph='user'/> Sign in
           </NavItem>

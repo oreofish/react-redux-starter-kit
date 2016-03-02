@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
 export default class Null extends Component {
-  static displayName = "NullPage";
-  constructor() {
-    super();
-  }
+  static displayName = 'NullPage'
+  // constructor() {
+  //   super()
+  // }
 
   render() {
     return (
@@ -12,6 +12,6 @@ export default class Null extends Component {
         <h2>Admin Page</h2>
         <div>page</div>
       </div>
-    );
+    )
   }
 }
