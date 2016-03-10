@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import TodoItem from './TodoItem'
-import Footer from './Footer'
+import Tabs from './Tabs'
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters'
 
 const TODO_FILTERS = {
@@ -42,7 +42,7 @@ class MainSection extends Component {
 
     if (todos.length) {
       return (
-        <Footer completedCount={completedCount}
+        <Tabs completedCount={completedCount}
                 activeCount={activeCount}
                 filter={filter}
                 onClearCompleted={this.handleClearCompleted.bind(this)}

@@ -1,7 +1,7 @@
 import expect from 'expect'
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
-import Footer from '../../src/components/Footer'
+import Footer from '../../src/components/Tabs'
 import { SHOW_ALL, SHOW_ACTIVE } from '../../src/constants/TodoFilters'
 
 function setup(propOverrides) {

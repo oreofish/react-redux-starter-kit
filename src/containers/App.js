@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Header from '../components/Header'
+import Edit from '../components/Edit'
 import MainSection from '../components/MainSection'
 import * as TodoActions from '../actions'
 
@@ -10,8 +10,8 @@ class App extends Component {
     const { todos, actions } = this.props
     return (
       <div>
-        <Header addTodo={actions.addTodo} />
         <MainSection todos={todos} actions={actions} />
+        <Edit addTodo={actions.addTodo} />
       </div>
     )
   }
