@@ -41,19 +41,16 @@ export default class AppNavbar extends Component {
       <Navbar inverse fixedTop>
         <Navbar.Header>
           <Navbar.Brand>
-            {this.renderBrand()}
+            <Link to='landing'>{this.props.brand}</Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
+        <Link to='todos'>Todos</Link>
         <Navbar.Collapse>
           {this.renderNavLinks()}
         </Navbar.Collapse>
       </Navbar>
     )
-  }
-
-  renderBrand() {
-    return (<Link to='landing'>{this.props.brand}</Link>)
   }
 
   renderNavLinks() {
