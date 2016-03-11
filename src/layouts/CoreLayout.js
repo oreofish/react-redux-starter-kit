@@ -12,8 +12,12 @@ import '../styles/core.scss'
 // CoreLayout is a pure function of its props, so we can
 // define it with a plain javascript function...
 function CoreLayout ({ children }) {
+  const styles = {
+    'margin-top': '100px'
+  }
+
   return (
-    <div className='page-container'>
+    <div className='page-container' style={styles}>
       <Navbar brand='HAHAHA'/>
       <div className='view-container'>
         {children}
