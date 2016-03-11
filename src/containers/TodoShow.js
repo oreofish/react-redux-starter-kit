@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Edit from './TodoEdit'
 import MainSection from '../components/MainSection'
-import * as TodoActions from '../actions'
+import * as TodoActions from '../actions/Todos'
 
 class App extends Component {
   render() {

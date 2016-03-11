@@ -1,13 +1,16 @@
 import React, { PropTypes, Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
 import TodoTextInput from './../components/TodoTextInput'
-import * as TodoActions from '../actions'
+import * as TodoActions from '../actions/Todos'
 
 class TodoEdit extends Component {
   handleSave(text) {
     if (text.length !== 0) {
-      this.props.addTodo(text)
+      this.props.actions.addTodo(text)
+      console.log("jump to")
+      browserHistory.push('/todos')
     }
   }
 
@@ -23,7 +26,9 @@ class TodoEdit extends Component {
 }
 
 TodoEdit.propTypes = {
-  addTodo: PropTypes.func.isRequired
+  params: PropTypes.object.isRequired,
+  todos: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 }
 
 function mapStateToProps(state) {

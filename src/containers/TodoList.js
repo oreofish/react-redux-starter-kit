@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Button } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import MainSection from '../components/MainSection'
-import * as TodoActions from '../actions'
+import * as TodoActions from '../actions/Todos'
 
 class App extends Component {
   render() {
