@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import classnames from 'classnames'
 import TodoTextInput from './TodoTextInput'
+import { Link } from 'react-router'
 
 class TodoItem extends Component {
   constructor(props, context) {
@@ -37,14 +38,10 @@ class TodoItem extends Component {
     } else {
       element = (
         <div className='view'>
-          <input
-            className='toggle'
-            type='checkbox'
-            checked={todo.completed}
-            onChange={() => completeTodo(todo.id)} />
-          <label onDoubleClick={this.handleDoubleClick.bind(this)}>
-            {todo.text}
-          </label>
+          <div>{todo.completed}</div>
+          <Link to={'todos/show/' + todo.id}>{todo.text}</Link>
+          <br/>
+          <br/>
           <button
             className='destroy'
             onClick={() => deleteTodo(todo.id)} />

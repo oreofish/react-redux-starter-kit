@@ -1,7 +1,7 @@
 import expect from 'expect'
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
-import Header from '../../src/components/Edit'
+import Header from '../../src/containers/TodoEdit'
 import TodoTextInput from '../../src/components/TodoTextInput'
 
 function setup() {

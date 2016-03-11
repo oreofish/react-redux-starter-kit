@@ -15,13 +15,21 @@ import SignUpPage from 'pages/signup'
 import SignOutPage from 'pages/signout'
 import ProfilePage from 'pages/profile'
 import AdminPage from 'components/AdminHome'
-import App from 'containers/App'
+import TodoContainer from 'containers/TodoContainer'
+import TodoList from 'containers/TodoList'
+import TodoShow from 'containers/TodoShow'
+import TodoEdit from 'containers/TodoEdit'
 
 export default (store) => (
   <Route path='/' component={CoreLayout}>
     <IndexRoute component={HomeView}/>
     <Route path='landing' component={HomePage}/>
-    <Route path='todos' component={App}/>
+    <Route path='todos' component={TodoContainer}>
+      <IndexRoute component={TodoList}/>
+      <Route path='show/:id' component={TodoShow}/>
+      <Route path='new' component={TodoEdit}/>
+      <Route path='edit/:id' component={TodoEdit}/>
+    </Route>
     <Route path='signin' component={SignInPage}/>
     <Route path='signup' component={SignUpPage}/>
     <Route path='signout' component={SignOutPage}/>

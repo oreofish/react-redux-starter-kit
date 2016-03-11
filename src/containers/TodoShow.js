@@ -1,23 +1,23 @@
 import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Edit from '../components/Edit'
+import Edit from './TodoEdit'
 import MainSection from '../components/MainSection'
 import * as TodoActions from '../actions'
 
 class App extends Component {
   render() {
-    const { todos, actions } = this.props
+    const { params, todos, actions } = this.props
     return (
       <div>
-        <MainSection todos={todos} actions={actions} />
-        <Edit addTodo={actions.addTodo} />
+        {todos[params.id].text}
       </div>
     )
   }
 }
 
 App.propTypes = {
+  params: PropTypes.object.isRequired,
   todos: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 }
