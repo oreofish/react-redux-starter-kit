@@ -5,7 +5,7 @@ import Edit from './TodoEdit'
 import MainSection from '../components/MainSection'
 import * as TodoActions from '../actions'
 
-class App extends Component {
+class TodoContainer extends Component {
   render() {
     const { todos, actions } = this.props
     return (
@@ -17,24 +17,4 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  todos: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
-}
-
-function mapStateToProps(state) {
-  return {
-    todos: state.todos
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(TodoActions, dispatch)
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App)
+export default TodoContainer
