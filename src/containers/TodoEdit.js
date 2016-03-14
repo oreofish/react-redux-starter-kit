@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import TodoTextInput from './../components/TodoTextInput'
-import * as TodoActions from '../actions/Todos'
 
 class TodoEdit extends Component {
   handleSave(text) {
@@ -26,25 +25,8 @@ class TodoEdit extends Component {
 }
 
 TodoEdit.propTypes = {
-  params: PropTypes.object.isRequired,
-  todos: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
+  params: PropTypes.object.isRequired
 }
 
-function mapStateToProps(state) {
-  return {
-    todos: state.todos
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(TodoActions, dispatch)
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TodoEdit)
+export default TodoEdit
 

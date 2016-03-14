@@ -13,7 +13,7 @@ import '../styles/core.scss'
 // define it with a plain javascript function...
 function CoreLayout ({ children }) {
   const styles = {
-    'margin-top': '100px'
+    marginTop: '100px'
   }
 
   return (

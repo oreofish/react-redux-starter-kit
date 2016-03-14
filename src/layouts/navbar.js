@@ -41,11 +41,11 @@ export default class AppNavbar extends Component {
       <Navbar inverse fixedTop>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to='landing'>{this.props.brand}</Link>
+            <Link to='/landing'>{this.props.brand}</Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
-        <Link to='todos'>Todos</Link>
+        <Link to='/todos'>Todos</Link>
         <Navbar.Collapse>
           {this.renderNavLinks()}
         </Navbar.Collapse>
@@ -57,7 +57,7 @@ export default class AppNavbar extends Component {
     if (this.state.user) {
       return (
         <Nav pullRight eventKey={0}>
-          <LinkContainer to='admin'>
+          <LinkContainer to='/admin'>
             <NavItem>
               <Glyphicon glyph='cog'/> Admin
             </NavItem>
@@ -67,7 +67,7 @@ export default class AppNavbar extends Component {
               <Glyphicon glyph='user'/> {this.state.user.username}
             </NavItem>
           </LinkContainer>
-          <LinkContainer to='signout'>
+          <LinkContainer to='/signout'>
             <NavItem>
               <Glyphicon glyph='log-out'/> Sign out
             </NavItem>
@@ -77,12 +77,12 @@ export default class AppNavbar extends Component {
     }
     return (
       <Nav pullRight eventKey={0}>
-        <LinkContainer to='signup'>
+        <LinkContainer to='/signup'>
           <NavItem>
             <Glyphicon glyph='user'/> Sign up
           </NavItem>
         </LinkContainer>
-        <LinkContainer to='signin'>
+        <LinkContainer to='/signin'>
           <NavItem>
             <Glyphicon glyph='log-in'/> Sign in
           </NavItem>

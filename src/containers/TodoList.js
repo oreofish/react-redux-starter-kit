@@ -4,9 +4,8 @@ import { connect } from 'react-redux'
 import { Button } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import MainSection from '../components/MainSection'
-import * as TodoActions from '../actions/Todos'
 
-class App extends Component {
+class TodoList extends Component {
   render() {
     const { todos, actions } = this.props
     return (
@@ -20,24 +19,4 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  todos: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
-}
-
-function mapStateToProps(state) {
-  return {
-    todos: state.todos
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(TodoActions, dispatch)
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App)
+export default TodoList
