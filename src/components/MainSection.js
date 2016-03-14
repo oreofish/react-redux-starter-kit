@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { Table } from 'react-bootstrap'
 import TodoItem from './TodoItem'
 import Tabs from './Tabs'
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters'
@@ -50,13 +51,23 @@ class MainSection extends Component {
     )
 
     return (
-      <section className="main">
+      <section>
         {this.renderTabs(completedCount)}
-        <ul className="todo-list">
+        <Table striped bordered condensed hover>
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>Todo</th>
+            <th>Complete</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
           {filteredTodos.map(todo =>
             <TodoItem key={todo.id} todo={todo} {...actions} />
           )}
-        </ul>
+          </tbody>
+        </Table>
       </section>
     )
   }

@@ -1,7 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import classnames from 'classnames'
-import TodoTextInput from './TodoTextInput'
+import { Table, Button } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 import { Link } from 'react-router'
+import TodoTextInput from './TodoTextInput'
+
 
 class TodoItem extends Component {
   constructor(props, context) {
@@ -50,12 +53,17 @@ class TodoItem extends Component {
     }
 
     return (
-      <li className={classnames({
-        completed: todo.completed,
-        editing: this.state.editing
-      })}>
-        {element}
-      </li>
+      <tr>
+        <td>{todo.id}</td>
+        <td><Link to={'todos/show/' + todo.id}>{todo.text}</Link></td>
+        <td>{todo.completed ? 'true' : 'false'}</td>
+        <td>
+          <LinkContainer to={'todos/edit/' + todo.id}>
+            <Button>Edit</Button>
+          </LinkContainer>
+          <Button onClick={() => deleteTodo(todo.id)} >Delete</Button>
+        </td>
+      </tr>
     )
   }
 }

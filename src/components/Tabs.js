@@ -8,13 +8,13 @@ const FILTER_TITLES = {
   [SHOW_COMPLETED]: 'Completed'
 }
 
-class Footer extends Component {
+class Tabs extends Component {
   renderTodoCount() {
     const { activeCount } = this.props
     const itemWord = activeCount === 1 ? 'item' : 'items'
 
     return (
-      <span className='todo-count'>
+      <span className='todo-count pull-right'>
         <strong>{activeCount || 'No'}</strong> {itemWord} left
       </span>
     )
@@ -47,22 +47,21 @@ class Footer extends Component {
 
   render() {
     return (
-      <footer className='footer'>
+      <div>
         {this.renderTodoCount()}
-        <ul className='filters'>
+        <ul className='tabs'>
           {[ SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED ].map(filter =>
             <li key={filter}>
               {this.renderFilterLink(filter)}
             </li>
           )}
         </ul>
-        {this.renderClearButton()}
-      </footer>
+      </div>
     )
   }
 }
 
-Footer.propTypes = {
+Tabs.propTypes = {
   completedCount: PropTypes.number.isRequired,
   activeCount: PropTypes.number.isRequired,
   filter: PropTypes.string.isRequired,
@@ -70,4 +69,4 @@ Footer.propTypes = {
   onShow: PropTypes.func.isRequired
 }
 
-export default Footer
+export default Tabs
