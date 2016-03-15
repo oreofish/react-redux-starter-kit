@@ -50,7 +50,7 @@ class Tabs extends Component {
       <div>
         {this.renderTodoCount()}
         <ul className='tabs'>
-          {[ SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED ].map(filter =>
+          {[ SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED ].map((filter) =>
             <li key={filter}>
               {this.renderFilterLink(filter)}
             </li>

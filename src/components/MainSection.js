@@ -6,8 +6,8 @@ import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters'
 
 const TODO_FILTERS = {
   [SHOW_ALL]: () => true,
-  [SHOW_ACTIVE]: todo => !todo.completed,
-  [SHOW_COMPLETED]: todo => todo.completed
+  [SHOW_ACTIVE]: (todo) => !todo.completed,
+  [SHOW_COMPLETED]: (todo) => todo.completed
 }
 
 class MainSection extends Component {
@@ -55,15 +55,15 @@ class MainSection extends Component {
         {this.renderTabs(completedCount)}
         <Table striped bordered condensed hover>
           <thead>
-          <tr>
-            <th>#</th>
-            <th>Todo</th>
-            <th>Complete</th>
-            <th></th>
-          </tr>
+            <tr>
+              <th>#</th>
+              <th>Todo</th>
+              <th>Complete</th>
+              <th></th>
+            </tr>
           </thead>
           <tbody>
-          {filteredTodos.map(todo =>
+          {filteredTodos.map((todo) =>
             <TodoItem key={todo.id} todo={todo} {...actions} />
           )}
           </tbody>

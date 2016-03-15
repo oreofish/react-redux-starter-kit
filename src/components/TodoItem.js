@@ -1,10 +1,7 @@
 import React, { Component, PropTypes } from 'react'
-import classnames from 'classnames'
-import { Table, Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Link } from 'react-router'
-import TodoTextInput from './TodoTextInput'
-
 
 class TodoItem extends Component {
   constructor(props, context) {
@@ -12,10 +9,6 @@ class TodoItem extends Component {
     this.state = {
       editing: false
     }
-  }
-
-  handleDoubleClick() {
-    this.setState({ editing: true })
   }
 
   handleSave(id, text) {
@@ -28,29 +21,7 @@ class TodoItem extends Component {
   }
 
   render() {
-    const { todo, completeTodo, deleteTodo } = this.props
-
-    let element
-    if (this.state.editing) {
-      element = (
-        <TodoTextInput
-          text={todo.text}
-          editing={this.state.editing}
-          onSave={(text) => this.handleSave(todo.id, text)} />
-      )
-    } else {
-      element = (
-        <div className='view'>
-          <div>{todo.completed}</div>
-          <Link to={'todos/show/' + todo.id}>{todo.text}</Link>
-          <br/>
-          <br/>
-          <button
-            className='destroy'
-            onClick={() => deleteTodo(todo.id)} />
-        </div>
-      )
-    }
+    const { todo, deleteTodo } = this.props
 
     return (
       <tr>

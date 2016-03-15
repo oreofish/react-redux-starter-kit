@@ -1,6 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 import { Button } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import MainSection from '../components/MainSection'
@@ -17,6 +15,11 @@ class TodoList extends Component {
       </div>
     )
   }
+}
+
+TodoList.propTypes = {
+  todos: PropTypes.array.isRequired,
+  actions: PropTypes.array.isRequired
 }
 
 export default TodoList

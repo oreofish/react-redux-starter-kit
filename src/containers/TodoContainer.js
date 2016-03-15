@@ -17,6 +17,12 @@ class TodoContainer extends Component {
   }
 }
 
+TodoContainer.propTypes = {
+  children: PropTypes.object.isRequired,
+  todos: PropTypes.array.isRequired,
+  actions: PropTypes.array.isRequired
+}
+
 function mapStateToProps(state) {
   return {
     todos: state.todos
