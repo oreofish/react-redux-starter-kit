@@ -2,13 +2,21 @@ import React, { PropTypes, Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
+import _ from 'lodash'
 import TodoTextInput from './../components/TodoTextInput'
 
 class TodoEdit extends Component {
   handleSave(text) {
     if (text.length !== 0) {
-      this.props.actions.addTodo(text)
-      console.log("jump to")
+      if (_.isEmpty(this.props.params)) {
+        // add new
+        this.props.actions.addTodo(text)
+      } else {
+        // update
+        const id = parseInt(this.props.params.id)
+        this.props.actions.editTodo(id, text)
+      }
+
       browserHistory.push('/todos')
     }
   }
