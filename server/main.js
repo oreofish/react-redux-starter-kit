@@ -5,7 +5,7 @@ import passport from "koa-passport"
 import convert from 'koa-convert'
 import koaif from 'koa-if'
 import webpack from 'webpack'
-import webpackConfig from '../build/webpack.config'
+import webpackConfig from '../config/webpack.config.js'
 import historyApiFallback from 'koa-connect-history-api-fallback'
 import serve from 'koa-static'
 import proxy from 'koa-proxy'
