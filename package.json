@@ -8,7 +8,6 @@
     "npm": "^3.0.0"
   },
   "scripts": {
-    "clean": "rimraf dist",
     "compile": "better-npm-run compile",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
@@ -21,7 +20,8 @@
     "deploy": "better-npm-run deploy",
     "flow:check": "babel-node bin/flow-check",
     "codecov": "cat coverage/*/lcov.info | codecov",
-    "build": "rm -fr build/bin build/config build/server;babel -d build/bin bin;babel -d build/config config;babel -d build/server server;cp package.json build/"
+    "build:clean": "rm -fr build/public build/bin build/config build/server",
+    "build:server": "babel -d build/bin bin;babel -d build/config config;babel -d build/server server;cp package.json build/"
   },
   "betterScripts": {
     "compile": {
@@ -38,7 +38,7 @@
       }
     },
     "deploy": {
-      "command": "npm run clean && npm run compile",
+      "command": "npm run build:clean && npm run compile && npm run build:server",
       "env": {
         "NODE_ENV": "production",
         "DEBUG": "app:*"
