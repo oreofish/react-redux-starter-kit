@@ -38,7 +38,7 @@
       }
     },
     "deploy": {
-      "command": "npm run build:clean && npm run compile && npm run build:server",
+      "command": "npm run build:clean && npm run compile && npm run build:server && mv public build",
       "env": {
         "NODE_ENV": "production",
         "DEBUG": "app:*"
